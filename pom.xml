@@ -13,12 +13,26 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpringApi</name>
 	<description>Demo project for Spring Boot for August</description>
+	<packaging>war</packaging>
 
 	<properties>
 		<java.version>14</java.version>
 	</properties>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter -->
+			<dependency>
+			    <groupId>io.springfox</groupId>
+			    <artifactId>springfox-boot-starter</artifactId>
+			    <version>3.0.0</version>
+			</dependency>
+		
+		 
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.5</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -52,6 +66,10 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 	</dependencies>
 
