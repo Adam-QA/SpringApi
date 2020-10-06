@@ -12,7 +12,7 @@ import lombok.ToString;
 
 import java.util.List;
 
-import com.qa.Api.persistence.domain.Guitarist;
+
 
 
 
@@ -22,8 +22,9 @@ import com.qa.Api.persistence.domain.Guitarist;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class BandDTO {
+
+public class TaskListDTO {
 	private Long id;
 	private String name;
-	private List<GuitaristDTO> guitarists;
+	private List<TaskDTO> tasks;
 }

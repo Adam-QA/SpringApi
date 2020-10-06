@@ -1,17 +1,15 @@
 package com.qa.Api.persistence.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -30,22 +28,28 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Band {
+
+public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "band_name", unique = true)
-	private String name;
+	@Column(name = "Tasks", unique = false)
+	@NotNull
+	@Size(min = 1, max = 120)
+	private String toDo;
 	
-	@OneToMany(mappedBy = "band", cascade = CascadeType.ALL)
 	
-	private List<Guitarist> guitarists;
+	@ManyToOne
+	private TaskList tasklist;
 
-	public Band(String name) {
+	public Task(@NotNull @Size(min = 1, max = 120) String toDo) {
 		super();
-		this.name = name;
+		this.toDo = toDo;
+		
 	}
+	
+	
 	
 	
 

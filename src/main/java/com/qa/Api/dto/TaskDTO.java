@@ -17,12 +17,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class GuitaristDTO {
+public class TaskDTO {
 	private Long id;
-	private String name;
-	private Integer noOfStrings;
-	private String type;
+	private String toDo;
 	
-	
-
 }
