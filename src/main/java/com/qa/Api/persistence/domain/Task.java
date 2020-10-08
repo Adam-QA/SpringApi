@@ -28,15 +28,13 @@ import lombok.ToString;
 @Setter
 @ToString
 @EqualsAndHashCode
-
 public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "Tasks", unique = false)
 	@NotNull
-	@Size(min = 1, max = 120)
+	@Size(min = 0, max = 120)
 	private String toDo;
 	
 	

@@ -41,7 +41,6 @@ private TaskListRepository repo;
 	
 	
 	public TaskListDTO createTaskList(TaskList tasklist) {
-//		Band toSave = this.mapFromDTO(bandDTO);
 		TaskList saved = this.repo.save(tasklist);
 		return this.mapToDTO(saved);
 	}
@@ -66,7 +65,7 @@ private TaskListRepository repo;
 	
 	public boolean delete(Long id) {
 		this.repo.deleteById(id);
-		return this.repo.existsById(id);
+		return !this.repo.existsById(id);
 	}
 
 }

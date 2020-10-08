@@ -26,5 +26,5 @@ import java.util.List;
 public class TaskListDTO {
 	private Long id;
 	private String name;
-	private List<TaskDTO> tasks;
+	private List<TaskDTO> tasks = new ArrayList<>();
 }

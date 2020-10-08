@@ -39,7 +39,6 @@ public class TaskListController {
 	
 	@PostMapping("/create")
 	public ResponseEntity<TaskListDTO> create(@RequestBody TaskList tasklist){
-//		BandDTO created = this.service.createBand(Band);
 		return new ResponseEntity<>(this.service.createTaskList(tasklist), HttpStatus.CREATED);	
 		
 	}

@@ -35,14 +35,12 @@ public class TaskList {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "Task_List", unique = true)
 	private String name;
 	
 	@OneToMany(mappedBy = "tasklist", cascade = CascadeType.ALL)
-	private List<Task> tasks;
+	private List<Task> tasks = new ArrayList<>();
 
 	public TaskList(String name) {
-		super();
 		this.name = name;
 	}
 	
