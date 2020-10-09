@@ -1,6 +1,17 @@
 # SpringApi
 
 Starter Spring Application
+Includes a fully functioning front-end built with and styled by HTML, Javascript and CSS.
+On the front end website you are able to add a list of tasks and then add tasks to these lists.
+Both the task lists and tasks can be modified with CRUD functionality that is then stored in the backend!
+
+![alt text](https://i.imgur.com/FezXiI5.png)
+
+![alt text](https://i.imgur.com/rlMjvaE.png)
+
+
+
+
 
 Built with the following starters:
 
