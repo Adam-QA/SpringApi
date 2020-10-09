@@ -1,6 +1,7 @@
 package com.qa.Api.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -41,12 +42,12 @@ public class TaskListServiceUnitTest {
 	private List<TaskDTO> tasks;
 	
 	private Long id;
-	private final String name = "Welcome";
+	
 	
 	@BeforeEach
 	void init() {
 		this.taskList = new ArrayList<>();
-		this.taskListTest = new TaskList(name);
+		this.taskListTest = new TaskList("Welcome");
 		this.taskList.add(taskListTest);
 		this.taskListTestWithId = new TaskList(taskListTest.getName());
 		this.taskListTestWithId.setId(this.id);
@@ -121,10 +122,10 @@ public class TaskListServiceUnitTest {
         assertThat(this.service.delete(id)).isTrue();
 
         
-        verify(this.repo, times(1)).deleteById(id);
+        verify(this.repo, atLeastOnce()).deleteById(id);
 
         
-        verify(this.repo, times(2)).existsById(id);
+        verify(this.repo, atLeastOnce()).existsById(id);
     }
 
 }

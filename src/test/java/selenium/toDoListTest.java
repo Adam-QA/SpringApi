@@ -5,11 +5,14 @@ package selenium;
 
 
 
-import static org.junit.Assert.assertEquals;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +21,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class toDoListTest {
 	static WebDriver driver;
 	//setup
-	@BeforeClass
+	@BeforeAll
 	public static void setup() {
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Adam Stevenson\\Documents\\workspace-spring-tool-suite-4-4.8.0.RELEASE\\SpringApi\\src\\main\\resources\\drivers\\geckodriver.exe");
 		 driver = new FirefoxDriver();
@@ -97,7 +100,7 @@ public class toDoListTest {
 
 	
 	//close test
-	@AfterClass
+	@AfterAll
 	public static void close() {
 		driver.quit();
 		

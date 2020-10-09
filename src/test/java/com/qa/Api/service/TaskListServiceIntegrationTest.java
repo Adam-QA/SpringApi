@@ -81,13 +81,10 @@ public class TaskListServiceIntegrationTest {
 	
 	@Test
     void testUpdate() {
-		this.tasks = new ArrayList<>();
-		tasks.add(this.mapTaskToDTO(new Task("Yo")));
-		
-		
-        TaskListDTO newTaskList = new TaskListDTO(null, "Bullet", tasks);
+        TaskListDTO newTaskList = new TaskListDTO(null, "Bullet", this.tasks);
         TaskListDTO updatedTaskList =
-                new TaskListDTO(this.id, newTaskList.getName(), tasks);
+                new TaskListDTO(this.id, newTaskList.getName(), newTaskList.getTasks());
+        
         
 
         assertThat(updatedTaskList)
