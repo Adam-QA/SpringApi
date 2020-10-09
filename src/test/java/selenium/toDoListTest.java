@@ -51,20 +51,49 @@ public class toDoListTest {
 		viewlist.click();
 		Thread.sleep(2500);
 		
-		WebElement name = driver.findElement(By.xpath("//*[@id=\"inputName\"]"));
-		assertEquals("test", name.getText());
+		WebElement name = driver.findElement(By.xpath("/html/body/div[1]/h1"));
+		assertEquals("Tasks", name.getText());
+	}
+	
+	@Test
+	public void testupdate() throws InterruptedException {
+		driver.get("http://127.0.0.1:5500/ToDoList/html/index.html");
+		Thread.sleep(5000);
+		
+		WebElement viewlist = driver.findElement(By.xpath("/html/body/table/thead/tr[2]/td[3]/a"));
+		viewlist.click();
+		Thread.sleep(2500);
+		
+		WebElement update = driver.findElement(By.xpath("//*[@id=\"inputName\"]"));
+		update.sendKeys("Tuesday");
+		Thread.sleep(500);
+		
+		WebElement submit = driver.findElement(By.xpath("//*[@id=\"button1\"]"));
+		submit.click();
+		Thread.sleep(500);
+		
+		driver.get("http://127.0.0.1:5500/ToDoList/html/index.html");
+		Thread.sleep(500);
+		
+		WebElement name = driver.findElement(By.xpath("/html/body/div[1]/h1"));
+		assertEquals("Tuesday", name.getText());
+		
+		
+		
 	}
 	
 	@Test
 	public void testdelete() throws InterruptedException {
 		driver.get("http://127.0.0.1:5500/ToDoList/html/index.html");
-		Thread.sleep(2500);
+		Thread.sleep(5000);
 		
 		WebElement delete = driver.findElement(By.xpath("/html/body/table/thead/tr[2]/td[4]/button"));
-		delete.click();
+		delete.submit();
 //		WebElement deleted = driver.findElement(By.xpath("/html/body/table/thead/tr[2]/td[4]/button"));
 //		assertEquals("", deleted.getText());
 	}
+	
+	
 
 	
 	//close test
