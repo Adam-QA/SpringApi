@@ -22,10 +22,10 @@ function getSingleRecord(id){
                 if(keys == "id"){
                     var editid = data[keys];
                 }
-                if(keys == "tasks"){
-                    var edittask = data[keys];
-                }
-            }
+                if(keys == "toDo"){
+                  var edittask = data[keys];
+                    
+            }}
             
             document.getElementById("inputID").value=editid;
             document.getElementById("inputName").value=edittask;
@@ -59,3 +59,46 @@ function getSingleRecord(id){
         console.log('Fetch Error :-S', err);
       });
     }
+
+    document.querySelector("form.taskListRecord").addEventListener("submit", function(stop){
+      stop.preventDefault();
+  
+      let formElement = document.querySelector("form.taskListRecord").elements;
+      let id = formElement["inputID"].value;
+      let taskname = formElement["inputName"].value;
+      
+      updatetask(id, taskname);
+  
+  })
+
+
+  function updatetask(id, taskname){
+    let updateID = parseInt(id);
+
+
+
+    fetch("http://localhost:8901/task/update/" + updateID, {
+        method: 'put',
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: json = JSON.stringify({
+            "toDo": taskname
+        })
+      })
+      // .then(res => res.json())
+      .then(function (data) {
+        console.log('Request succeeded with JSON response', data);
+        refresh();
+      })
+      .catch(function (error) {
+        console.log('Request failed', error);
+      });
+    
+    
+    
+}
+
+function refresh(){
+  location.reload();
+}
